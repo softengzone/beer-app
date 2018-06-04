@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+	<title>Beer App</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/custom.css">    
+</head>
+<body ng-app='beerApp'>
+	
+	<div class="generic-container">
+	
+		<div ng-controller="AnotherBeerController" data-ng-init="getAnotherBeer()">
+			<div class="container">
+				<div class="panel panel-default control_container">
+					<div class="row top-buffer">
+					
+						<div class="col-xs-8 col-xs-offset-2">
+							<div class="header"><span class="lead">The Random Beer App <button class="btn btn-primary" ng-click="getAnotherBeer()">Show Another Beer</button></span></div>
+							
+							<!-- Beer Details -->				
+							<div>
+								<div class="container_header"><span class="lead">Beer Details</span></div>
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Name</label>
+									<div class="col-sm-10"><input type="text" ng-model="beer.name" class="form-control" id="name" placeholder="Beer Name"/></div>
+								</div>
+			
+								<div class="form-group">
+									<label for="description" class="col-sm-2 control-label">Description</label>
+									<div class="col-sm-10"><textarea ng-model="beer.description" class="form-control" id="description" placeholder="Beer Description" rows="5" cols="40"></textarea></div>
+								</div>
+			
+								<div class="form-group">
+									<label for="abv" class="col-sm-2 control-label">ABV</label>
+									<div class="col-sm-10"><input type="text" ng-model="beer.abv" class="form-control" id="abv" placeholder="Beer ABV"/></div>
+								</div>
+							</div>
+							
+							<!-- Brewery Location -->
+							<div>
+								<div class="form-group">
+									<label for="brewery_name" class="col-sm-2 control-label">Brewery Name</label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.name" class="form-control" id="brewery_name" placeholder=""/></div>
+								</div>
+								
+								<div class="form-group">
+									<label for="brewery_email" class="col-sm-2 control-label">Email</label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.email" class="form-control" id="brewery_email" placeholder=""/></div>
+								</div>
+								
+								<div class="form-group">
+									<label for="brewery_phone" class="col-sm-2 control-label">Phone</label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.phone" class="form-control" id="brewery_phone" placeholder=""/></div>
+								</div>
+			
+								<div class="form-group">
+									<label for="brewery_address1" class="col-sm-2 control-label">Address</label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.address1" class="form-control" id="brewery_address1" placeholder=""/></div>
+								</div>
+								
+								<div class="form-group">
+									<label for="brewery_address2" class="col-sm-2 control-label"></label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.address2" class="form-control" id="brewery_address2" placeholder=""/></div>
+								</div>
+								
+								<div class="form-group">
+									<label for="brewery_address3" class="col-sm-2 control-label"></label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.address3" class="form-control" id="brewery_address3" placeholder=""/></div>
+								</div>
+								
+								<div class="form-group">
+									<label for="brewery_postcode" class="col-sm-2 control-label"></label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.post_code" class="form-control" id="brewery_postcode" placeholder=""/></div>
+								</div>
+								
+								<div class="form-group">
+									<label for="brewery_country" class="col-sm-2 control-label"></label>
+									<div class="col-sm-10"><input type="text" ng-model="brewery.country" class="form-control" id="brewery_country" placeholder=""/></div>
+								</div>	
+									
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+			
+				<div class="panel panel-default control_container" ng-controller='BeerListController'>
+					<div class="container_header"><span class="lead">Beers</span></div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th class="panel-heading">Beer ID</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th>ABV</th>
+								<th>Brewery ID</th><!--
+								<th width="100"></th>
+								<th width="100"></th> -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='beer in beers'>
+								<td>{{beer.id}}</td>
+								<td>{{beer.name}}</td>
+								<td>{{beer.description}}</td>
+								<td>{{beer.abv}}</td>
+								<td>{{beer.breweryId}}</td>
+								<!--
+								<td><button type="button" class="btn btn-success custom-width">Edit</button></td>
+								<td><button type="button" class="btn btn-danger custom-width">Delete</button></td>
+								-->
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="panel panel-default control_container" ng-controller='BreweryLocationListController'>
+					<div class="container_header"><span class="lead">Beweries</span></div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Brewery ID</th>
+								<th>Name</th>
+								<th>Address Line 1</th>
+								<th>Address Line 2</th>
+								<th>Address Line 3</th>
+								<th>Post Code</th>
+								<th>Country</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='brewery in breweries'>
+								<td>{{brewery.id}}</td>
+								<td>{{brewery.name}}</td>
+								<td>{{brewery.address1}}</td>
+								<td>{{brewery.address2}}</td>
+								<td>{{brewery.address3}}</td>
+								<td>{{brewery.postCode}}</td>
+								<td>{{brewery.country}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>			
+			</div>
+		</div>
+	</div>	
+	
+	<script type="text/javascript" src="js/lib/angular.js"></script>
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/app/app.js"></script>
+	<script type="text/javascript" src="js/app/controllers/BeerControllers.js"></script>
+	<script type="text/javascript" src="js/app/services/BeerServices.js"></script>
+	<script type="text/javascript" src="js/app/controllers/BreweryControllers.js"></script>
+	<script type="text/javascript" src="js/app/services/BreweryServices.js"></script>
+	<script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+	
+	
+</body>
+</html>
