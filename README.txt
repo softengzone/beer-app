@@ -44,3 +44,9 @@
 	  
 5. Installation
    Build project with maven and run java -jar beer-app-1.0.0.jar
+   
+6. Database
+   The H2 database is accessible with the following URL http://8080/BeerApp/h2-console
+   JDBC URL: jdbc:h2:mem:test
+   User Name: sa
+   Password:
