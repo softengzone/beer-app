@@ -57,7 +57,7 @@ public class BeerController {
 		if (beer.isPresent()) {
 			return new ResponseEntity<Beer>(beer.get(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Beer>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<Beer>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -141,7 +141,7 @@ public class BeerController {
 	 * Retrieve total number of beers
 	 */
 	@GetMapping(value="/beer/total")
-	public ResponseEntity<SingleValueWrapper> getStockSize() {
+	public ResponseEntity<SingleValueWrapper> getTotalNumberOfBeers() {
 		return new ResponseEntity<>(new SingleValueWrapper(String.valueOf(beerService.getTotalNumberOfBeers())), HttpStatus.OK);
 	}
 	

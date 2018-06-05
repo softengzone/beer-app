@@ -9,7 +9,7 @@ public interface AbstractService<T, ID> {
 	
 	List<T> findAll();
 	
-	void save(T t);
+	T save(T t);
 	
 	void delete(T t);
 	

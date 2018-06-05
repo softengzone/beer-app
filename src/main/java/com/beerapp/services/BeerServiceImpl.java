@@ -30,8 +30,8 @@ public class BeerServiceImpl implements BeerService {
 	}
 
 	@Override
-	public void save(Beer beer) {
-		beerRepository.save(beer);
+	public Beer save(Beer beer) {
+		return beerRepository.save(beer);
 	}
 
 	@Override

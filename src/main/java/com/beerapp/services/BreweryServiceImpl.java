@@ -28,8 +28,8 @@ public class BreweryServiceImpl implements BreweryService {
 	}
 
 	@Override
-	public void save(Brewery brewery) {
-		breweryRepository.save(brewery);
+	public Brewery save(Brewery brewery) {
+		return breweryRepository.save(brewery);
 	}
 
 	@Override

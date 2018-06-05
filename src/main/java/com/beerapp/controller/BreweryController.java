@@ -36,7 +36,6 @@ public class BreweryController {
 		this.breweryService = service;
 	}
 	
-	
 	/*
 	 * Retrieve Brewery by id
 	 */
