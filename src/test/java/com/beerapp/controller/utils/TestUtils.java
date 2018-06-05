@@ -1,6 +1,5 @@
 package com.beerapp.controller.utils;
 
-import com.beerapp.domain.Beer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TestUtils {
