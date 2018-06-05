@@ -45,7 +45,7 @@ public class BreweryController {
 		if (brewery.isPresent()) {
 			return new ResponseEntity<Brewery>(brewery.get(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Brewery>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<Brewery>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
